@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Newsreader', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --color-newsprint: #ECE8DF;
+  --color-newsprint-dim: #DEDACF;
+  --color-ink: #17201B;
+  --color-ink-soft: #3A4A3E;
+  --color-pitch: #1F3D2B;
+  --color-pitch-light: #2D5940;
+  --color-gold: #C99A2E;
+  --color-gold-bright: #E0B23F;
+  --color-line: #B9B2A0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-newsprint);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
